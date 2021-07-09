@@ -1,0 +1,23 @@
+@charset "UTF-8";
+.mt50px {
+    margin-top: 50px !important;
+}
+.mb20px {
+    margin-bottom: 20px;
+}
+.mb16px {
+    margin-bottom: 16px !important;
+}
+.mb10px {
+    margin-bottom: 10px;
+}
+.mb0px {
+    margin-bottom: 0 !important;
+}
+.pt4px {
+    padding-top: 4px;
+}
+
+.colorfff {
+    color: #fff;
+}

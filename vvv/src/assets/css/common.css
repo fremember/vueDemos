@@ -1,0 +1,151 @@
+@charset "UTF-8";
+[v-cloak] {
+	display: none;
+}
+.flex {
+	display: flex;
+}
+.flex_1 {
+	flex: 1;
+}
+.flex-center {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.ai-c {
+	align-items: center;
+}
+.ai-s {
+	align-items: flex-start;
+}
+.ai-e {
+	align-items: flex-end;
+}
+.jc-c {
+	justify-content: center;
+}
+.jc-s {
+	justify-content: space-between;
+}
+.jc-e {
+	justify-content: flex-end;
+}
+
+.db {
+	display: block;
+}
+.dib {
+	display: inline-block;
+}
+
+.thin-width {
+	width: 100%;
+	height: 1px;
+	background: #edeef0;
+}
+.thin-height {
+	width: 1px;
+	height: 100%;
+	background: #edeef0;
+}
+.tal {
+	text-align: left;
+}
+.tac {
+	text-align: center;
+}
+.tar {
+	text-align: right;
+}
+
+.pos-r {
+	position: relative;
+}
+.pos-a {
+	position: absolute;
+}
+.pos-f {
+	position: fixed;
+}
+.t0 {
+	top: 0;
+}
+.r0 {
+	right: 0;
+}
+.b0 {
+	bottom: 0;
+}
+.l0 {
+	left: 0;
+}
+.cur-p {
+	cursor: pointer;
+}
+/* 滚动条样式 start */
+::-webkit-scrollbar-thumb {
+	box-shadow: inset 0 0 5px rgba(0,0,0,0.2) !important;
+	background: rgba(0,0,0,0.2) !important;
+	border-radius: 10px !important;
+}
+::-webkit-scrollbar-track {
+	box-shadow: inset 0 0 5px rgba(0,0,0,0.2) !important;
+	background: rgba(0,0,0,0.1) !important;
+	border-radius: 0 !important;
+}
+::-webkit-scrollbar {
+	width: 2px !important;
+}
+/* 滚动条样式 end */
+
+.box-shadow {
+	background: #fff;
+	box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, .08);
+}
+
+.fade-transform-leave-active,
+.fade-transform-enter-active {
+	transition: all 0.3s;
+}
+.fade-transform-enter {
+	opacity: 0;
+	transform: translateX(-30px);
+}
+.fade-transform-leave-to {
+	opacity: 0;
+	transform: translateX(30px);
+}
+
+.border-t {
+	border-top: 1px solid #eee;
+}
+.border-r {
+	border-right: 1px solid #eee;
+}
+.border-b {
+	border-bottom: 1px solid #eee;
+}
+.border-l {
+	border-left: 1px solid #eee;
+}
+.border-all {
+	border: 1px solid #eee;
+}
+.pos-center {
+	top: 50%;
+	left: 50%;
+	z-index: 100;
+	transform: translate(-50%, -50%)
+}
+
+.bgfff {
+	background: #fff;
+}
+
+.log-reg-for-content {
+	padding: 20px;
+	width: 460px;
+	border-radius: 4px;
+	box-shadow: 0 0 4px 0 #209ee4;
+}

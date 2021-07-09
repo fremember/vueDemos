@@ -1,0 +1,37 @@
+@charset "UTF-8";
+.mr16px {
+    margin-right: 16px;
+}
+.ml16px {
+    margin-left: 16px;
+}
+.pad-tb-10px {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.pad-lr-16px {
+    padding-right: 16px;
+    padding-left: 16px;
+}
+.pad-r-16px {
+    padding-right: 16px;  
+}
+.w200px {
+    width: 200px;
+}
+.lh38px {
+    height: 38px;
+    line-height: 38px;
+}
+.bgfff {
+    background: #fff;
+}
+.colorfff {
+    color: #fff;
+}
+.captcha-wrapper .captcha-img {
+    top: 0;
+    right: 0;
+    width: 116px;
+    height: 36px;
+}

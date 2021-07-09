@@ -1,0 +1,21 @@
+.login .ant-col {
+    flex: 1;
+}
+.login .ant-form-item-children,
+.login .ant-btn {
+    display: block;
+    width: 100%;
+}
+.login .ant-btn span {
+    color: #fff;
+}
+.ant-input-affix-wrapper,
+.ant-input {
+    padding: 6px 11px;
+}
+.captcha-wrapper .ant-input {
+    padding-right: 122px;
+}
+.mb0 {
+    margin-bottom: 0;
+}
