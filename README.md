@@ -11,10 +11,11 @@
 
 
 # 项目列表
++ [vue3.0基础入门](https://github.com/fremember/vueDemos/tree/master/vue3)
 + [vue+vuex+vue-router基础](https://github.com/fremember/vueDemos/tree/master/vvv)
 + [vue+vuex+vue-router+ts基础](https://github.com/fremember/vueDemos/tree/master/vvvt)
 + [vue+vuex+vue-router+ts+class基础](https://github.com/fremember/vueDemos/tree/master/vvvtc)
 + [vite构建vue项目基础](https://github.com/fremember/vueDemos/tree/master/vite)
 + [vite构建vue+ts项目基础](https://github.com/fremember/vueDemos/tree/master/vitet)
-+ [nuxt构建vue项目基础]
-+ [nuxt构建vue+ts项目基础]
++ [nuxt构建vue项目基础](https://github.com/fremember/vueDemos/tree/master/nuxt)
++ [nuxt构建vue+ts项目基础](https://github.com/fremember/vueDemos/tree/master/nuxtt)
