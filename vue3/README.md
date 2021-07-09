@@ -61,8 +61,8 @@ setup 函数是一个新的组件选项。作为在组件内使用 Composition A
     setup 函数会在 beforeCreatee 钩子之前被调用，在 setup 函数中无法访问 this
 2、返回值
     如果 setup 返回一个对象，则对象的属性可以在组件模板中被访问
-3、[参数]()
-    第一个参数为 props ，接收当前组件props选项的值，即获取父组件传递过来的参数
+3、[参数](https://github.com/fremember/vueDemos/blob/master/vue3/src/views/props/index.vue)
+    第一个参数为 [props](https://github.com/fremember/vueDemos/blob/master/vue3/src/views/props/index.vue) ，接收当前组件props选项的值，即获取父组件传递过来的参数
     第二个参数为 context ，接收一个上下文对象，该对象中包含了一些在 vue 2.x 中需要通过 this 才能 访问到属性
 ```
 
