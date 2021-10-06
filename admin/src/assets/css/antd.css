@@ -1,0 +1,13 @@
+@charset "UTF-8";
+.pay-layout-header {
+    padding: 0 10px !important;
+    background: #fff !important;
+}
+.pxy-layout-content {
+    margin: 10px;
+    padding: 10px;
+    background: #fff;
+}
+.ant-layout-header {
+    height: 50px !important;
+}
