@@ -5,6 +5,7 @@
  */
 import axios, { AxiosRequestConfig } from 'axios'
 import store from '@/store'
+import router from '@/router'
 
 import config from '@/config'
 import Storage from '@/utils/storage'
@@ -101,6 +102,9 @@ export class Pxyaxios {
         if (response.data.code === 0) {// 正确的数据
             return response.data.data
         } else {// 报错信息
+            if(response.data.code === 200) {
+                router.push({ path: '/login' }).catch(() => { })
+            }
             return response.data.msg
         }
     }

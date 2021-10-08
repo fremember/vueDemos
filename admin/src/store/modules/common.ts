@@ -60,7 +60,13 @@ const state = {
                 if(result.token) {// 登录成功，保存token，跳转路由
                     storage.setStorage('token', result.token, 1)
                     storage.setStorage('rolename', result.rolename, 1)
-                    router.push({ path: '/dashboard' })
+                    if (router.currentRoute.value.query && router.currentRoute.value.query.redirect) {
+                        let _query: any = router.currentRoute.value.query,
+                            _path: string = _query.redirect || '';
+                        router.push({ path: _path })
+                    } else {
+                        router.push({ path: '/dashboard' })
+                    }
                 } else {// 登录失败
                     message.warning(result)
                 }

@@ -1,26 +1,27 @@
 <!--
  * @Author: fremember
  * @Date: 2021-09-27 08:30:53
- * @Description: 
+ * @Description: 左侧导航栏
 -->
 <template name="component-name">
-    <a-menu theme="dark" mode="inline" v-model:selectedKeys="selectedKeys">
-        <a-menu-item key="1">
-            <user-outlined />
-            <span>nav 122</span>
-        </a-menu-item>
-        <a-menu-item key="2">
-            <video-camera-outlined />
-            <span>nav 2</span>
-        </a-menu-item>
-        <a-menu-item key="3">
-            <upload-outlined />
-            <span>nav 3</span>
-        </a-menu-item>
+    <a-menu theme="dark" mode="inline" :default-selected-keys="selectedKeys" :selectedKeys="selectedKeys" :default-open-keys="openKeys" :openKeys="openKeys" v-if="routes.length > 0">
+        <template v-for="route in routes">
+            <template v-if="route.children.length <= 1">
+                <a-menu-item :key="route.url">
+                    <router-link :to="route.url">
+                        <span>{{ route.title }}</span>
+                    </router-link>
+                </a-menu-item>
+            </template>
+            <template v-else>
+                <lay-menu :menuInfo="route" :key="route.name" />
+            </template>
+        </template>
     </a-menu>
 </template>
 <script lang="ts">
-    import { defineComponent, ref, computed, onMounted } from 'vue'
+    import { defineComponent, ref, computed, onMounted, watch } from 'vue'
+    import { useRoute } from 'vue-router'
     import { useStore } from 'vuex'
     import {
         UserOutlined,
@@ -28,22 +29,46 @@
         UploadOutlined
     } from '@ant-design/icons-vue'
 
+    import LayMenu from './layMenu/index.vue'
+
    
     export default defineComponent({
         name: 'LayoutMenu',
         components: {
             UserOutlined,
             VideoCameraOutlined,
-            UploadOutlined
+            UploadOutlined,
+            LayMenu
         },
         setup() {
             let store = useStore(),
-                routes = computed(() => store.getters['routes/routes']);
+                route = useRoute(),
+                selectedKeys = ref(['dashboard']),
+                openKeys = ref(['/dashboard/index']),
+                routes = computed(() => store.getters['routes/routes']),
+                changeFromRoute = (path: string): void => {// 根据当前路由，修改selectedKeys、openKeys的值
+                    let _routeArr = path.split('/').filter((val: string): string => val)
+                    if(path === '/dashboard/index') {
+                        openKeys.value = ['']
+                    } else {
+                        openKeys.value = [ `${_routeArr[0]}` ]
+                    }
+                    selectedKeys.value = [path]
+                };
             onMounted(() => {
-                console.log(routes.value)
+                changeFromRoute(route.path)
             })
+
+            watch(
+                () => route.path,
+                (newVal: string): void => {
+                    changeFromRoute(newVal)
+                }
+            )
+
             return {
-                selectedKeys: ref<string[]>(['1']),
+                selectedKeys,
+                openKeys,
                 routes
             }
         }
