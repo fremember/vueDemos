@@ -1,5 +1,5 @@
 @charset "UTF-8";
-.pay-layout-header {
+.pxy-layout-header {
     padding: 0 10px !important;
     background: #fff !important;
 }
@@ -9,6 +9,13 @@
     background: #fff;
 }
 .ant-layout-header {
-    height: 50px !important;
+    height: 100px !important;
+}
+.pxy-layout-header-info {
     line-height: 50px !important;
+}
+.ant-menu-item-only-child,
+.ant-menu-submenu-title {
+    padding: 0 !important;
+    text-align: center !important;
 }

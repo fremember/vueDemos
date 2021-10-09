@@ -15,3 +15,7 @@ export interface LoginForm {
     userpwd: string;
     verificationCode: string;
 }
+export interface TabItem {
+    url: string;
+    title: string
+}

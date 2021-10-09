@@ -10,7 +10,10 @@ import {
     Form,
     Checkbox,
     Layout,
-    Menu
+    Menu,
+    Dropdown,
+    Row,
+    Col
 } from 'ant-design-vue'
 
 // 导出use完ant-design-vue组件的app
@@ -22,4 +25,7 @@ export function antd (app: any): any {
         .use(Checkbox)
         .use(Layout)
         .use(Menu)
+        .use(Dropdown)
+        .use(Row)
+        .use(Col)
 }

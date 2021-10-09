@@ -14,6 +14,14 @@ import './assets/css/antd.css'
 // 实现 ant-design-vue 按需加载
 import { antd } from './antd'
 
+import Storage from '@/utils/storage'
+const storage: any  = new Storage(),
+    username: string = storage.getStorage('username', 1) || '',
+    avatar: string = storage.getStorage('avatar', 1) || '';
+    
+store.commit('common/setUsername', username)
+store.commit('common/setAvatar', avatar)
+
 // 加载插件
 import '@/lib'
 

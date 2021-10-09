@@ -29,7 +29,7 @@
         name: 'LayMenu',
         props: ['menuInfo'],
         setup(props) {
-            let getProps = (attr) => {
+            let getProps = (attr: string) => {
 					return ref(attr)
 				},
 				menuInfo = getProps(props.menuInfo);

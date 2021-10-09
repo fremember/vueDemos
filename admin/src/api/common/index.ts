@@ -16,6 +16,7 @@ export default class CommonService {
     public async login (data: LoginForm): Promise<any> {
         return await Pxyaxios.post({ url: Urls.login.login, data})
     }
+    // 注册用户时校验唯一性
     public async checkUsername (data: any): Promise<any> {
         return await Pxyaxios.post({ url: Urls.login.checkUsername, data})
     }
@@ -25,7 +26,7 @@ export default class CommonService {
     }
     // 退出
     public async logout (): Promise<boolean> {
-        await Pxyaxios.post({ url: Urls.login.logout })
+        await Pxyaxios.get({ url: Urls.login.logout })
         return true
     }
     // 登录用户获取前端路由
