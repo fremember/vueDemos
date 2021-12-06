@@ -1,7 +1,7 @@
 <!--
  * @Author: fremember
  * @Date: 2021-09-26 09:14:58
- * @Description: 
+ * @Description: 首页
 -->
 <template>
     <div class="dashboard">
