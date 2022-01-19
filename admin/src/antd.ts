@@ -13,7 +13,10 @@ import {
     Menu,
     Dropdown,
     Row,
-    Col
+    Col,
+    Modal,
+    Select,
+    Radio
 } from 'ant-design-vue'
 
 // 导出use完ant-design-vue组件的app
@@ -28,4 +31,7 @@ export function antd (app: any): any {
         .use(Dropdown)
         .use(Row)
         .use(Col)
+        .use(Modal)
+        .use(Select)
+        .use(Radio)
 }

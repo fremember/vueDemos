@@ -43,7 +43,11 @@
                 <sub-nav />
             </a-layout-header>
             <a-layout-content class="pxy-layout-content">
-                <router-view />
+                <router-view v-slot="{ Component }" class="lay-content-main">
+                    <transition name="fade-transform" mode="out-in">
+                        <component :is="Component" />
+                    </transition>
+                </router-view>
             </a-layout-content>
         </a-layout>
     </a-layout>

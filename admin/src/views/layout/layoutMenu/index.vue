@@ -9,7 +9,8 @@
             <template v-if="route.children.length <= 1">
                 <a-menu-item :key="route.url">
                     <router-link :to="route.url">
-                        <span>{{ route.title }}</span>
+                        <component v-if="route?.meta.icon" :is="route?.meta.icon" />
+                        {{ route.title }}
                     </router-link>
                 </a-menu-item>
             </template>
@@ -26,7 +27,8 @@
     import {
         UserOutlined,
         VideoCameraOutlined,
-        UploadOutlined
+        UploadOutlined,
+        HomeOutlined
     } from '@ant-design/icons-vue'
 
     import LayMenu from './layMenu/index.vue'
@@ -38,6 +40,7 @@
             UserOutlined,
             VideoCameraOutlined,
             UploadOutlined,
+            HomeOutlined,
             LayMenu
         },
         setup() {

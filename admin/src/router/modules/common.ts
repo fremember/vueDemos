@@ -26,21 +26,37 @@ let commonRouter: Array<RouteRecordRaw> = [
         path: '/error',
         component: Layout,
         redirect: '/error/404',
+        meta: {
+            catch: false,
+            icon: 'ToolOutlined'
+        },
         children: [
             {
                 path: '404',
                 name: 'NotFound',
-                component: () => import('@/views/error/404/index.vue')
+                component: () => import('@/views/error/404/index.vue'),
+                meta: {
+                    catch: false,
+                    icon: 'ToolOutlined'
+                }
             },
             {
                 path: '403',
                 name: 'Forbid',
-                component: () => import('@/views/error/403/index.vue')
+                component: () => import('@/views/error/403/index.vue'),
+                meta: {
+                    catch: false,
+                    icon: 'ToolOutlined'
+                }
             },
             {
                 path: '502',
                 name: 'Maintain',
-                component: () => import('@/views/error/502/index.vue')
+                component: () => import('@/views/error/502/index.vue'),
+                meta: {
+                    catch: false,
+                    icon: 'ToolOutlined'
+                }
             }
         ]
     }

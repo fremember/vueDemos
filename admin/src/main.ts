@@ -14,6 +14,9 @@ import './assets/css/antd.css'
 // 实现 ant-design-vue 按需加载
 import { antd } from './antd'
 
+// 加载swiper样式
+import 'swiper/swiper-bundle.css'
+
 import Storage from '@/utils/storage'
 const storage: any  = new Storage(),
     username: string = storage.getStorage('username', 1) || '',
