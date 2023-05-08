@@ -14,8 +14,7 @@
                 <a-form-item label="上级菜单">
                     <a-select v-model:value="formState.parent" placeholder="请选择上级菜单">
                         <a-select-option value="">无上级菜单</a-select-option>
-                        <a-select-option value="1">商品</a-select-option>
-                        <a-select-option value="2">订单</a-select-option>
+                        <a-select-option v-for="route in topRoutes" :value="route.name" :key="route.name">{{ route.title }}</a-select-option>
                     </a-select>
                 </a-form-item>
                 <a-form-item label="前端名称" name="title">
@@ -24,20 +23,20 @@
                 <a-form-item label="前端图标" name="icon">
                     <a-input v-model:value="formState.icon" placeholder="请输入前端图标" />
                 </a-form-item>
-                <!-- <a-form-item label="是否显示" name="showFlag">
+                <a-form-item label="是否显示">
                     <a-radio-group v-model:value="formState.showFlag">
-                        <a-radio value="0">是</a-radio>
-                        <a-radio value="1">否</a-radio>
-                    </a-radio-group>
-                </a-form-item> -->
-                <a-form-item label="是否缓存" name="catch">
-                    <a-radio-group v-model:value="formState.catch">
-                        <a-radio value="0">是</a-radio>
-                        <a-radio value="1">否</a-radio>
+                        <a-radio :value="true">是</a-radio>
+                        <a-radio :value="false">否</a-radio>
                     </a-radio-group>
                 </a-form-item>
-                <a-form-item label="排序" name="sort">
-                    <a-input v-model:value="formState.sort" disabled placeholder="设置排序" />
+                <a-form-item label="是否缓存" name="catch">
+                    <a-radio-group v-model:value="formState.catch">
+                        <a-radio :value="true">是</a-radio>
+                        <a-radio :value="false">否</a-radio>
+                    </a-radio-group>
+                </a-form-item>
+                <a-form-item label="排序" name="order">
+                    <a-input v-model:value="formState.order" disabled placeholder="设置排序" />
                 </a-form-item>
                 <a-form-item :wrapper-col="{ span: 18, offset: 6 }">
                     <a-button type="primary" @click="onSubmit">提交</a-button>
@@ -45,68 +44,42 @@
                 </a-form-item>
             </a-form>
         </a-modal>
-
-        <div class="mine-swiper">
-            <div class="swiper-container">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide" v-for="list in swiperList" :key="list.id">
-                        <div v-for="item in list.lists" :key="item.id" @click="swiperItemEvent(item)">
-                            {{ item.desc }}
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-pagination" slot="pagination"></div>
-            </div>
-        </div>
     </div>
 </template>
 <script lang="ts">
-    import { defineComponent, ref, reactive, onMounted } from 'vue'
+    import { defineComponent, ref, reactive, computed, onMounted, watch } from 'vue'
+    import { useStore } from 'vuex'
     import router from '@/router'
 
-    import { Swiper, SwiperSlide } from 'swiper/vue/swiper-vue.js'
-    
- 
-    import SwiperCore, { Pagination, Autoplay } from 'swiper'
-    SwiperCore.use([ Pagination, Autoplay ])
-
-    interface SwiperItem {
-        id: string;
-        desc: string
-    }
-    interface SwiperLists {
-        id: string;
-        lists: Array<SwiperItem>
-    }
-
+    import { TopRoutes } from '@/interface/common'
 
     interface FormState {
         name: string;// 路由地址
         parent: string;// 上级的name参数
         title: string;// 前端显示的文字
         icon: string;// 图标
+        showFlag: boolean;// 是否显示，false：否，true：是
         rolename: string;// 角色名称
-        catch: string; // 是否缓存，0: false 1: true
-        sort: number;// 排序
+        catch: boolean; // 是否缓存，false：否，true：是
+        order: number;// 排序
     }
 
     export default defineComponent({
         name: 'Dashboard',
-        components: {
-            Swiper,
-            SwiperSlide,
-        },
         setup () {
-            let visible = ref<boolean>(false),
+            let store = useStore(),
+                visible = ref<boolean>(false),
                 formRef = ref<any>(null),
+                topRoutes = computed(() => store.getters['routes/topRoutes']),
                 formState = reactive<FormState>({
                     name: '',
                     parent: '',
                     title: '',
                     icon: '',
+                    showFlag: true,
                     rolename: '',
-                    catch: '0',
-                    sort: 1
+                    catch: true,
+                    order: 1
                 }),
                 rules = ref<any>({
                     name: [
@@ -119,81 +92,35 @@
                         { required: true, message: '前端图标不能为空', trigger: 'blur' },
                     ],
                 }),
-                swiperList = reactive<Array<SwiperLists>>([
-                    {
-                        id: 'aaa',
-                        lists: [
-                            {
-                                id: 'a1',
-                                desc: "背景图第一张"
-                            },
-                            {
-                                id: 'a2',
-                                desc: "背景图第二张"
-                            },
-                            {
-                                id: 'a3',
-                                desc: "背景图第三张"
-                            },
-                            {
-                                id: 'a4',
-                                desc: "背景图第4张"
-                            }
-                        ]
-                    },
-                    {
-                        id: 'bbb',
-                        lists: [
-                            {
-                                id: 'b1',
-                                desc: "背景图第一张"
-                            },
-                            {
-                                id: 'b2',
-                                desc: "背景图第二张"
-                            },
-                            {
-                                id: 'b3',
-                                desc: "背景图第三张"
-                            }
-                        ]
-                    },
-                    {
-                        id: 'ccc',
-                        lists: [
-                            {
-                                id: 'c1',
-                                desc: "背景图第一张"
-                            },
-                            {
-                                id: 'c2',
-                                desc: "背景图第二张"
-                            },
-                            {
-                                id: 'c3',
-                                desc: "背景图第三张"
-                            }
-                        ]
-                    }
-                ]),
                 showModal = (): void => {
                     visible.value = !visible.value
                 },
-                onSubmit = (): void => {},
+                onSubmit = (): void => {
+                    // console.log(formState)
+                    formRef.value.validate()
+                        .then(async () => {
+                            let res = await store.dispatch('routes/addRoute', formState)
+                            console.log(res)
+                        })
+                        .catch((err: any): void => {
+                            console.log(err)
+                        })
+                    // addRoute
+                },
                 resetForm = (): void => {
                     formRef.value.resetFields()
-                },
-                swiperItemEvent = (item: SwiperItem): void => {
-                    router.push('/error/404')
                 };
             onMounted(() => {
-                new SwiperCore(".swiper-container", {
-                    pagination: {
-                        el: ".swiper-pagination",
-                        clickable: true
-                    }
-                });
+                store.dispatch('routes/setTopRoutes')
             })
+            watch(
+                () => topRoutes.value,
+                (newVal: Array<TopRoutes>): void => {
+                    if(newVal.length > 0) {
+                        formState.order = Number(newVal[newVal.length - 2].order) + 1 < 10 ? Number(newVal[newVal.length - 2].order) + 1 : Number(newVal[newVal.length - 1].order) + 1
+                    }
+                }
+            )
             return {
                 visible,
                 formRef,
@@ -201,19 +128,16 @@
                 rules,
                 labelCol: { span: 6 },
                 wrapperCol: { span: 18 },
-
-                swiperList,
-
+                topRoutes,
 
                 showModal,
                 onSubmit,
                 resetForm,
-                swiperItemEvent
             }
         }
     })
 </script>
-<style scoprd lang="stylus">
+<style scoped lang="stylus">
     @import './../../assets/stylus/reset'
     .mine-swiper {
         margin-auto(50px)

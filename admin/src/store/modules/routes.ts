@@ -11,26 +11,37 @@ import { message } from 'ant-design-vue'
 
 import CommonService from '@/api/common'
 
+import { TopRoutes } from '@/interface/common'
+
 const commonService = new CommonService()
 
 interface State {
-    routes: Array<string>
+    routes: Array<string>;
+    topRoutes: Array<TopRoutes>;
 }
 interface Mutations {
-    setRoutes: (state: State, routes: Array<string>) => void
+    setRoutes: (state: State, routes: Array<string>) => void;
+    setTopRoutes: (state: State, topRoutes: Array<TopRoutes>) => void;
 }
 interface Actions {
-    setRoutes: (context: ActionContext, routes: Array<string>) => Promise<void>
+    setRoutes: (context: ActionContext, routes: Array<string>) => Promise<void>;
+    setTopRoutes: (context: ActionContext) => Promise<void>;
+    addRoute: (context: ActionContext, route: any) => Promise<any>;
 }
 const state: State = {
-        routes: []
+        routes: [],
+        topRoutes: []
     },
     getters: GetterTree<State, any> = {
-        routes: (state: State) => state.routes
+        routes: (state: State) => state.routes,
+        topRoutes: (state: State) => state.topRoutes
     },
     mutations: Mutations = {
         setRoutes (state: State, routes: Array<any>): void {
             state.routes = routes
+        },
+        setTopRoutes (state: State, topRoutes: Array<TopRoutes>): void {
+            state.topRoutes = topRoutes
         }
     },
     actions: Actions = {
@@ -41,6 +52,23 @@ const state: State = {
                 commit('setRoutes', result)
                 return result
             } catch (err) {
+                return Promise.reject(err)
+            }
+        },
+        async setTopRoutes (context: ActionContext): Promise<void> {
+            const { commit } = context
+            try {
+                const res: Array<TopRoutes> = await commonService.getParentRoutes()
+                commit('setTopRoutes', res)
+            } catch(err) {
+                return Promise.reject(err)
+            }
+        },
+        async addRoute (context: ActionContext, route: any): Promise<any> {
+            try {
+                const res: any = await commonService.addRoute(route)
+                return res
+            } catch(err) {
                 return Promise.reject(err)
             }
         }

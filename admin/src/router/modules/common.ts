@@ -28,7 +28,7 @@ let commonRouter: Array<RouteRecordRaw> = [
         redirect: '/error/404',
         meta: {
             catch: false,
-            icon: 'ToolOutlined'
+            // icon: 'ToolOutlined'
         },
         children: [
             {
@@ -37,7 +37,7 @@ let commonRouter: Array<RouteRecordRaw> = [
                 component: () => import('@/views/error/404/index.vue'),
                 meta: {
                     catch: false,
-                    icon: 'ToolOutlined'
+                    // icon: 'ToolOutlined'
                 }
             },
             {
@@ -46,7 +46,7 @@ let commonRouter: Array<RouteRecordRaw> = [
                 component: () => import('@/views/error/403/index.vue'),
                 meta: {
                     catch: false,
-                    icon: 'ToolOutlined'
+                    // icon: 'ToolOutlined'
                 }
             },
             {
@@ -55,7 +55,7 @@ let commonRouter: Array<RouteRecordRaw> = [
                 component: () => import('@/views/error/502/index.vue'),
                 meta: {
                     catch: false,
-                    icon: 'ToolOutlined'
+                    // icon: 'ToolOutlined'
                 }
             }
         ]

@@ -17,7 +17,7 @@ let dashboardRouter: RouteRecordRaw = {
             name: 'Dashboard',
             component: () => import('@/views/dashboard/index.vue'),
             meta: {
-                icon: 'HomeOutlined',
+                // icon: 'HomeOutlined',
                 catch: false
             }
         }

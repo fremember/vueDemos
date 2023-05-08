@@ -16,6 +16,8 @@ export const Urls = {
         checkUsername: `${api}/common/checkUsername`,// 注册时，验证用户名唯一性
         register: `${api}/common/register`,// 注册接口
         logout: `${api}/common/logout`,// 注销接口
-        getRoutes: `${api}/common/getRoutes`// 登录用户获取前端路由
+        getRoutes: `${api}/common/getRoutes`,// 登录用户获取前端路由
+        getParentRoutes: `${api}/common/getParentRoutes`,// 添加路有时候，获取顶极路由
+        addRoute: `${api}/common/addRoute`,// 新增路由
     }
 }

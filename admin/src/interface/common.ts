@@ -19,3 +19,9 @@ export interface TabItem {
     url: string;
     title: string
 }
+
+export interface TopRoutes {
+    name: string;
+    title: string;
+    order: string;
+}

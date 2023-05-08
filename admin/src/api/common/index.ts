@@ -33,4 +33,12 @@ export default class CommonService {
     public async getRoutes (data: any): Promise<any> {
         return await Pxyaxios.get({ url: Urls.login.getRoutes, data})
     }
+    // 添加路有时候，获取顶极路由
+    public async getParentRoutes (): Promise<any> {
+        return await Pxyaxios.get({ url: Urls.login.getParentRoutes })
+    }
+    // 新增路由
+    public async addRoute (data: any): Promise<any> {
+        return await Pxyaxios.post({ url: Urls.login.addRoute, data })
+    }
 }
