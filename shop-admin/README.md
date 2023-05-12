@@ -15,6 +15,7 @@ npm 7+ 执行 npm create vite@latest my-vue-app -- --template vue
 volar vue文件的高亮和代码提示
 Vue Language Features vue语法提示
 Vue 3 Snippets vue3的代码提示
+Element Plus Snippets elementPlus提示
 windicss
 4、在 vite.config.js 中配置相对路径
 resolve: {
@@ -41,4 +42,6 @@ resolve: {
 安装 vuex : npm install vuex@next --save
 安装 nprogress 实现全屏进度条 : npm install nprogress
 安装 vueuse/core 解决全屏展示问题 : npm i @vueuse/core
+安装 gsap 实现数字的动画效果,具体实例在components/CountTo.vue : npm install gsap
+安装 echarts 绘制表格 : npm install echarts
 ```

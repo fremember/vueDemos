@@ -13,6 +13,8 @@ import 'nprogress/nprogress.css'
 
 import './utils/permission'
 
+import permission from './directives/permission.js'
+
 const app = createApp(App)
 
 // 全局使用图标icon
@@ -20,4 +22,4 @@ for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
     app.component(key, component)
 }
 
-app.use(store).use(router).use(ElementPlus).mount('#app')
+app.use(store).use(router).use(ElementPlus).use(permission).mount('#app')
