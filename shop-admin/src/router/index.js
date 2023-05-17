@@ -64,6 +64,16 @@ const routes = [// 默认路由，所有用户共享
             meta: {
                 title: '优惠券管理'
             }
+        },
+
+
+        {
+            path: '/image/list',
+            name: 'image-list',
+            component: () => import('@/views/other-module/image/list.vue'),
+            meta: {
+                title: '图库管理'
+            }
         }
     ];
 

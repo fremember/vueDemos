@@ -1,4 +1,4 @@
-import axios from '@/utils/axios.js'
+import axios from '@/utils/axios'
 
 export function getStatistics1 () {
     return axios.get('/admin/statistics1')
