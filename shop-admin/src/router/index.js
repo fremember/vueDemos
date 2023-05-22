@@ -74,6 +74,14 @@ const routes = [// 默认路由，所有用户共享
             meta: {
                 title: '图库管理'
             }
+        },
+        {
+            path: '/notice/list',
+            name: 'notice-list',
+            component: () => import('@/views/other-module/notice/list.vue'),
+            meta: {
+                title: '公告管理'
+            }
         }
     ];
 
