@@ -74,8 +74,19 @@
         list = ref([]),
         image_class_id = ref(0),
         drawer = ref(false),// 上传图片
-        openUploadFile = () => drawer.value = true,
-        openChoose = ref(false);
+        openUploadFile = () => drawer.value = true;
+    const  props = defineProps({
+            openChoose:{
+                type:Boolean,
+                default:false
+            },
+            limit:{
+                type:Number,
+                default:1
+            }
+        }),
+        // 选中的图片
+        emit = defineEmits(['choose']);
     const getData = (p = null) => {// 初始化数据列表
             if(typeof p == 'number') {
                 currentPage.value = p
@@ -99,7 +110,11 @@
             getData()
         },
         handleChooseChange = (item) => {
-            console.log(item)
+            if(item.checked && checkedImage.value.length > props.limit){
+                item.checked = false
+                return toast(`最多只能选中${props.limit}张`, "error")
+            }
+            emit('choose', checkedImage.value)
         },
         handleEdit = (item) => {// 重命名
             showPrompt('重命名', item.name)
@@ -126,7 +141,9 @@
                 loading.value = false
             })
         },
-        handleUploadSuccess = () => getData(1);
+        handleUploadSuccess = () => getData(1),
+       
+        checkedImage = computed(() => list.value.filter(o => o.checked));
     defineExpose({
         loadData,
         openUploadFile

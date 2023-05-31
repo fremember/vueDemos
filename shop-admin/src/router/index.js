@@ -65,8 +65,22 @@ const routes = [// 默认路由，所有用户共享
                 title: '优惠券管理'
             }
         },
-
-
+        {
+            path: '/manager/list',
+            name: 'manager-list',
+            component: () => import('@/views/admin-manage/manager/list.vue'),
+            meta: {
+                title: '管理员管理'
+            }
+        },
+        {
+            path: '/access/list',
+            name: 'access-list',
+            component: () => import('@/views/admin-manage/access/list.vue'),
+            meta: {
+                title: '权限管理'
+            }
+        },
         {
             path: '/image/list',
             name: 'image-list',

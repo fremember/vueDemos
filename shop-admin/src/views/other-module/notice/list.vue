@@ -40,7 +40,7 @@
                     <el-input v-model="form.title" placeholder="公告标题" />
                 </el-form-item>
                 <el-form-item label="公告内容" prop="content">
-                    <el-input v-model="form.content" placeholder="公告内容" />
+                    <el-input v-model="form.content" placeholder="公告内容" type="textarea" :row="5" />
                 </el-form-item>
             </el-form>
         </form-drawer>

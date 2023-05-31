@@ -47,6 +47,9 @@ export function useInitTable (opt = {}) {
                 notification({ message: '修改状态成功' })
                 row.status = status
             })
+            .finally(() => {
+                row.statusLoading = false
+            })
         },
         multiSelectionIds = ref([]),
         handleSelectionChange = (e) => {
@@ -114,7 +117,7 @@ export function useInitForm (opt = {}) {
                 const fn = editId.value ? opt.update(editId.value, body) : opt.create(body)
                 fn.then(() => {
                     notification({ message: `${drawerTitle.value}成功` })
-                    opt.getData(editId.value ? false : 1)
+                    opt.getData(editId.value ? false : 1)// 修改刷新当前页，新增刷新第一页
                     formDrawerRef.value.close()
                 }).finally(() => {
                     formDrawerRef.value.hideLoading()
