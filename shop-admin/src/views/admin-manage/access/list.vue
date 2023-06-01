@@ -1,6 +1,6 @@
 <template name="access-list">
     <el-card shadow="never" class="border-0">
-        <list-headder @create="handleCreate" @refresh="getData" />
+        <list-header @create="handleCreate" @refresh="getData" />
         <el-tree
             :data="tableData"
             :props="{ label: 'name', children: 'child' }"
@@ -43,7 +43,7 @@
                 </div>
             </template>
         </el-tree>
-        <form-drawer ref="formDrawerRef" :title="drawerTitle" @sunmit="handleSubmit">
+        <form-drawer ref="formDrawerRef" :title="drawerTitle" @submit="handleSubmit">
             <el-form :model="form" ref="formRef" :rules="rules" label-width="80px" :inline="false">
                 <el-form-item label="上级菜单" prop="rule_id">
                     <el-cascader
