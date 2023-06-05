@@ -82,6 +82,14 @@ const routes = [// 默认路由，所有用户共享
             }
         },
         {
+            path: '/role/list',
+            name: 'role-list',
+            component: () => import('@/views/admin-manage/role/list.vue'),
+            meta: {
+                title: '角色管理'
+            }
+        },
+        {
             path: '/image/list',
             name: 'image-list',
             component: () => import('@/views/other-module/image/list.vue'),
