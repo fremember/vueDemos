@@ -4,6 +4,7 @@ import { queryParams } from '@/utils/lib'
 // 登录接口
 export function login (loginData) {
     return axios.post('/admin/login', loginData)
+    // return axios.post('/shopAdmin/common/login', loginData)
 }
 
 // 获取用户信息

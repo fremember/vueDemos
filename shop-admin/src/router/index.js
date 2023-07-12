@@ -58,6 +58,22 @@ const routes = [// 默认路由，所有用户共享
             }
         },
         {
+            path: '/user/list',
+            name: 'user-list',
+            component: () => import('@/views/user-manage/user/list.vue'),
+            meta: {
+                title: '用户管理'
+            }
+        },
+        {
+            path: '/level/list',
+            name: 'level-list',
+            component: () => import('@/views/user-manage/level/list.vue'),
+            meta: {
+                title: '会员等级'
+            }
+        },
+        {
             path: '/coupon/list',
             name: 'coupon-list',
             component: () => import('@/views/goods-manage/coupon/list.vue'),
