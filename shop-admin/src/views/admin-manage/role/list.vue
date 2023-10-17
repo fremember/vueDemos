@@ -56,7 +56,7 @@
                 </el-form-item>
             </el-form>
         </form-drawer>
-        <form-drawer ref="setRuleFormDrawerRef" title="全县配置" @submit="handleSetRuleSubmit">
+        <form-drawer ref="setRuleFormDrawerRef" title="权限配置" @submit="handleSetRuleSubmit">
             <el-tree-v2
                 ref="elTreeRef"
                 node-key="id"

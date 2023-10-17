@@ -1,3 +1,6 @@
+/**
+ * 权限管理
+ */
 import axios from '@/utils/axios'
 
 export function getAccessList(page) {

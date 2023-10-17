@@ -4,7 +4,7 @@
             <el-button v-if="btns.includes('create')" type="primary" size="small" @click="$emit('create')">新增</el-button>
             <el-popconfirm v-if="btns.includes('delete')" title="是否要删除选中记录？" confirmButtonText="确认" cancelButtonText="取消" @confirm="$emit('delete')">
                 <template #reference>
-                <el-button type="danger" size="small">批量删除</el-button>
+                    <el-button type="danger" size="small">批量删除</el-button>
                 </template>
             </el-popconfirm>
             <slot/>

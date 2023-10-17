@@ -1,4 +1,33 @@
 /**
+ * 将小写的金额转换成大写金额
+ * @param {*} num 
+ * @returns 
+ */
+function numToString(num) {
+    if (num > 999999999) throw '超过金额上限，最大单位为亿'
+    const unitMap = ['', '拾', '佰', '仟', '万', '拾', '佰', '仟', '亿']
+    const stringMap = ['零', '壹', '贰', '叁', '肆', '伍', '陆', '柒', '捌', '玖']
+    const n = num + ''
+    const len = n.length
+    let lastIndex = len - 1
+    let result = ''
+    for (let i = 0; i < len; i++) {
+        if (i > 0 && n[i] == '0') {
+            if (n[i - 1] != '0') result += '零'
+        } else {
+            result += stringMap[n[i]] + unitMap[lastIndex]
+        }
+
+        lastIndex--
+    }
+    
+    lastIndex = result.length - 1
+    if (result[lastIndex] == '零') return result.slice(0, lastIndex)
+    return result
+}
+
+
+/**
  * 请求拦截时，处理接口地址，返回值删除query形式的参数
  * @param {*} url 
  */

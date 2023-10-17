@@ -8,9 +8,12 @@ export function useInitTable (opt = {}) {
     if(opt.searchForm) {
         searchForm = reactive({ ...opt.searchForm })
         resetSearchForm = () => {
-            for (const key of opt.searchForm) {
+            // for (const key of opt.searchForm) {
+            //     searchForm[key] = opt.searchForm[key]
+            // }
+            Object.keys(opt.searchForm).forEach(key => {
                 searchForm[key] = opt.searchForm[key]
-            }
+            })
             getData()
         }
     }
@@ -53,6 +56,7 @@ export function useInitTable (opt = {}) {
         },
         multiSelectionIds = ref([]),
         handleSelectionChange = (e) => {
+            console.log(e)
             multiSelectionIds.value = e.map(o => o.id)
         },
         multipleTableRef = ref(null),

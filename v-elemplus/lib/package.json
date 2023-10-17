@@ -1,0 +1,16 @@
+{
+    "name": "fremember-components",
+    "version": "1.0.1",
+    "main": "index.umd.js",
+    "module": "index.es.js",
+    "types": "index.d.ts",
+    "author": {
+        "name": "fremember"
+    },
+    "keywords": [
+        "element-plus",
+        "vue3",
+        "vite",
+        "组件二次封装"
+    ]
+}
