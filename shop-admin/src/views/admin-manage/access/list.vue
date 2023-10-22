@@ -107,9 +107,9 @@
     const store = useStore(),
         options = ref([]),
         defaultExpandsKeys = ref([]),
-        loading = computed(() => store.getters['manage/loading']),
         {
             tableData,
+            loading,
             getData,
             handleDelete,
             handleStatusChange

@@ -1,0 +1,42 @@
+{
+    "compilerOptions": {
+        /* 声明编译输出文件的路径 */
+        "outDir": "./dist",
+        /* 编译输出文件的模块规范 */
+        "module": "esnext",
+        /* 编译输出文件的 ECMAScript 版本 */
+        "target": "esnext",
+        /* 是否生成 sourceMap */
+        "sourceMap": true,
+        /* 是否启用在 .vue 文件中的 <script setup> 区域中使用的单文件组件功能 */
+        "experimentalDecorators": true,
+        /* 是否启用装饰器语法 */
+        "allowSyntheticDefaultImports": true,
+        /* 是否允许从没有默认导出的模块进行默认导入 */
+        "esModuleInterop": true,
+        /* 是否启用默认的 esModuleInterop 行为 */
+        "strict": true,
+        /* 是否启用所有严格类型检查选项 */
+        "moduleResolution": "node",
+        /* 模块解析策略 */
+        "baseUrl": ".",
+        /* 模块导入路径的基本 URL */
+        "paths": {
+        /* 相对于 baseUrl 解析的模块导入路径 */
+        "@/*": ["src/*"]
+        },
+        /* 对应的编译器插件 */
+        "plugins": [
+            /* 启用装饰器转换 */
+            {
+                "name": "@vue/compiler-sfc",
+                "transforms": {
+                    "before": [
+                        /* 启用注入组件，实现自动引入 Element Plus 等组件的功能 */
+                        "unplugin-vue-components/vite"
+                    ]
+                }
+            }
+        ]
+    }
+}  

@@ -48,9 +48,9 @@
     import { useInitTable, useInitForm } from '@/mixins/useCommon'
 
     const store = useStore(),
-        loading = computed(() => store.getters['manager/loading']),
         {
             tableData,
+            loading,
             getData,
             handleDelete,
             handleStatusChange

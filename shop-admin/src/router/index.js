@@ -120,6 +120,62 @@ const routes = [// 默认路由，所有用户共享
             meta: {
                 title: '公告管理'
             }
+        },
+        {
+            path: '/distribution/index',
+            name: 'distribution-index',
+            component: () => import('@/views/distribution-module/distributors/index.vue'),
+            meta: {
+                title: '分销员管理'
+            }
+        },
+        {
+            path: '/distribution/setting',
+            name: 'distribution-setting',
+            component: () => import('@/views/distribution-module/setting/index.vue'),
+            meta: {
+                title: '分销管理'
+            }
+        },
+        {
+            path: '/order/list',
+            name: 'order-list',
+            component: () => import('@/views/order-manage/list/index.vue'),
+            meta: {
+                title: '订单管理'
+            }
+        },
+        {
+            path: '/comment/list',
+            name: 'order-comment',
+            component: () => import('@/views/order-manage/comment/index.vue'),
+            meta: {
+                title: '评论管理'
+            }
+        },
+        {
+            path: '/setting/base',
+            name: 'setting-base',
+            component: () => import('@/views/system-setting/base/index.vue'),
+            meta: {
+                title: '基础设置'
+            }
+        },
+        {
+            path: '/setting/buy',
+            name: 'setting-buy',
+            component: () => import('@/views/system-setting/buy/index.vue'),
+            meta: {
+                title: '交易设置'
+            }
+        },
+        {
+            path: '/setting/ship',
+            name: 'setting-ship',
+            component: () => import('@/views/system-setting/ship/index.vue'),
+            meta: {
+                title: '物流设置'
+            }
         }
     ];
 

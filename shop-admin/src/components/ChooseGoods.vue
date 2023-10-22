@@ -1,8 +1,8 @@
 <!--
  * @Author: fremember
  * @Date: 2023-08-26 18:18:15
- * @LastEditTime: 2023-08-26 18:39:21
- * @LastEditors: fremember
+ * @LastEditTime: 2023-10-21 14:04:35
+ * @LastEditors: xiangyang.peng
  * @Description:  商品选择
  * @FilePath: /fremember_github/vueDemos/shop-admin/src/components/ChooseGoods.vue
 -->
@@ -73,7 +73,6 @@
     import { useInitTable } from '@/mixins/useCommon'
 
     const store = useStore(),
-        loading = computed(() => store.getters['manager/loading']),
         dialogvisible = ref(false),
         callbackFunction = ref(null),
         {
@@ -81,6 +80,7 @@
             multipleTableRef,
             searchForm,
             tableData,
+            loading,
             currentPage,
             total,
             limit,

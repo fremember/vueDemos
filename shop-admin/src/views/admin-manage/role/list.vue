@@ -99,10 +99,10 @@
     import { notification } from '@/utils/element-plus'
 
     const store = useStore(),
-        loading = computed(() => store.getters['manager/loading']),
         {
             getData,
             tableData,
+            loading,
             total,
             currentPage,
             limit,

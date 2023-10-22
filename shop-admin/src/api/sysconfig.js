@@ -1,13 +1,7 @@
 /**
- * @Author: xiangyang.peng
- * @Date: 2023-08-26 17:20:23
- * @LastEditTime: 2023-08-26 17:20:35
- * @LastEditors: xiangyang.peng
- * @Description:  
- * @FilePath: /fremember_github/vueDemos/shop-admin/src/api/sysconfig.js
+ * 系统设置相关api
  */
-
-import axios from '@/axios'
+import axios from '@/utils/axios'
 
 export function getSysconfig() {
     return axios.get(`/admin/sysconfig`)

@@ -1,12 +1,6 @@
 /**
- * @Author: xiangyang.peng
- * @Date: 2023-08-26 17:18:13
- * @LastEditTime: 2023-08-26 17:18:14
- * @LastEditors: xiangyang.peng
- * @Description:  
- * @FilePath: /fremember_github/vueDemos/shop-admin/src/api/goods_comment.js
+ * 
  */
-
 import axios from '@/utils/axios'
 import { queryParams } from '../utils/lib'
 

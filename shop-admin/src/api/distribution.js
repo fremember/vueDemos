@@ -1,13 +1,7 @@
 /**
- * @Author: fremember
- * @Date: 2023-08-26 17:13:56
- * @LastEditTime: 2023-08-26 17:16:56
- * @LastEditors: xiangyang.peng
- * @Description: 分销模块相关api
- * @FilePath: /fremember_github/vueDemos/shop-admin/src/api/distribution.js
+ * 分销模块
  */
-
-import axios from '@/axios'
+import axios from '@/utils/axios'
 import { queryParams } from '../utils/lib'
 
 

@@ -174,12 +174,12 @@
     }
 
     const store = useStore(),
-        loading = computed(() => store.getters['manager/loading']),
         user_level = ref([]),
         {
             searchForm,
             resetSearchForm,
             tableData,
+            loading,
             currentPage,
             total,
             limit,

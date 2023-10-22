@@ -2,7 +2,7 @@ import { login, getInfo, logout, updatePassword } from '@/api/manager.js'
 import cookie from '@/utils/cookie.js'
 
 const state = {
-        loading: false,
+        // loading: false,
         userInfo: null,
         menus: [],
         ruleNames: []
@@ -14,9 +14,9 @@ const state = {
         ruleNames: (state) => state.ruleNames
     },
     mutations = {
-        setLoading (state, loading) {
-            state.loading = loading
-        },
+        // setLoading (state, loading) {
+        //     state.loading = loading
+        // },
         setUserInfo (state, userInfo) {
             state.userInfo = userInfo
         },

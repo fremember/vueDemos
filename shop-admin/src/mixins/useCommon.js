@@ -18,6 +18,7 @@ export function useInitTable (opt = {}) {
         }
     }
     let tableData = ref([]),
+        loading = ref(false),
         currentPage = ref(1),
         total = ref(0),
         limit = ref(10);
@@ -25,23 +26,32 @@ export function useInitTable (opt = {}) {
         if(typeof p == 'number') {
             currentPage.value = p
         }
+        loading.value = true
         opt.getList(currentPage.value, searchForm)
-        .then(res => {
-            if(opt.onGetListSuccess && typeof opt.onGetListSuccess == 'function') {
-                opt.onGetListSuccess(res)
-            } else {
-                tableData.value = res.list
-                total.value = res.totalCount
-            }
-        })
+            .then(res => {
+                if(opt.onGetListSuccess && typeof opt.onGetListSuccess == 'function') {
+                    opt.onGetListSuccess(res)
+                } else {
+                    tableData.value = res.list
+                    total.value = res.totalCount
+                }
+            })
+            .finally(() => {
+                loading.value = false
+            })
     }
     getData()
 
     const handleDelete = (id) => {// 删除
-            opt.delete(id).then(res => {
-                notification({ message: '删除成功' })
-                getData()
-            })
+            loading.value = true
+            opt.delete(id)
+                .then(res => {
+                    notification({ message: '删除成功' })
+                    getData()
+                })
+                .finally(() => {
+                    loading.value = false
+                })
         },
         handleStatusChange = (status, row) => {// 修改状态
             row.statusLoading = true
@@ -61,29 +71,38 @@ export function useInitTable (opt = {}) {
         },
         multipleTableRef = ref(null),
         handleMultiDelete = () => {// 批量删除
+            loading.value = true
             opt.delete(multiSelectionIds.value)
-            .then(() => {
-                notification({ message: '删除成功' })
-                if (multipleTableRef.value) {// 清空选中
-                    multipleTableRef.value.clearSelection()
-                }
-                getData()
-            })
+                .then(() => {
+                    notification({ message: '删除成功' })
+                    if (multipleTableRef.value) {// 清空选中
+                        multipleTableRef.value.clearSelection()
+                    }
+                    getData()
+                })
+                .finally(() => {
+                    loading.value = false
+                })
         },
         handleMultiStatusChange = (status) => {
+            loading.value = true
             opt.updateStatus(multiSelectionIds.value, status)
-            .then(() => {
-                notification({ message: '修改状态成功' })
-                if (multipleTableRef.value) {// 清空选中
-                    multipleTableRef.value.clearSelection()
-                }
-                getData()
-            })
+                .then(() => {
+                    notification({ message: '修改状态成功' })
+                    if (multipleTableRef.value) {// 清空选中
+                        multipleTableRef.value.clearSelection()
+                    }
+                    getData()
+                })
+                .finally(() => {
+                    loading.value = false
+                })
         };
     return {
         searchForm,
         resetSearchForm,
         tableData,
+        loading,
         currentPage,
         total,
         limit,

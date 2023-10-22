@@ -136,7 +136,6 @@
     } from '@/api/coupon'
     
     const store = useStore(),
-        loading = computed(() => store.getters['manager/loading']),
         formatStatus = (row) => {
             let s = '领取中',
                 start_time = (new Date(row.start_time)).getTime(),
@@ -153,6 +152,7 @@
         },
         {
             tableData,
+            loading,
             currentPage,
             total,
             limit,

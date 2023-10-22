@@ -1,12 +1,6 @@
 /**
- * @Author: xiangyang.peng
- * @Date: 2023-08-26 17:19:27
- * @LastEditTime: 2023-08-26 22:04:39
- * @LastEditors: fremember
- * @Description:  用户管理-列表相关api
- * @FilePath: /fremember_github/vueDemos/shop-admin/src/api/user.js
+ * 用户管理-列表相关api
  */
-
 import axios from '@/utils/axios'
 import { queryParams } from '../utils/lib'
 

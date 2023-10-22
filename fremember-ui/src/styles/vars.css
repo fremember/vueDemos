@@ -1,0 +1,73 @@
+/* 存放 css 变量 */
+:root {
+    /* colors */
+    --fui-color-white: #fff;
+    --fui-color-black: #000;
+    --colors: (
+        primary: #409eff,
+        success: #67c23a,
+        warning: #e6a23c,
+        danger: #f56c6c,
+        info: #909399
+    );
+    
+    @each $val, $color in var(--colors) {
+        --fui-color-$(val): $(color);
+        @for $i from 3 to 9 by 2 {
+        --fui-color-$(val)-light-$(i): mix(#fff, $(color), .$(i))
+        }
+        --fui-color-$(val)-light-8: mix(#fff, $(color), .8);
+        --fui-color-$(val)-dark-2: mix(#000, $(color), .2);
+    }
+    
+    --fui-bg-color: #fff;
+    --fui-bg-color-page: #f2f3f5;
+    --fui-bg-color-overlay: #fff;
+    --fui-text-color-primary: #303133;
+    --fui-text-color-regular: #606266;
+    --fui-text-color-secondary: #909399;
+    --fui-text-color-placeholder: #a8abb2;
+    --fui-text-color-disabled: #c0c4cc;
+    --fui-border-color: #dcdfe6;
+    --fui-border-color-light: #e4e7ed;
+    --fui-border-color-lighter: #ebeef5;
+    --fui-border-color-extra-light: #f2f6fc;
+    --fui-border-color-dark: #d4d7de;
+    --fui-border-color-darker: #cdd0d6;
+    --fui-fill-color: #f0f2f5;
+    --fui-fill-color-light: #f5f7fa;
+    --fui-fill-color-lighter: #fafafa;
+    --fui-fill-color-extra-light: #fafcff;
+    --fui-fill-color-dark: #ebedf0;
+    --fui-fill-color-darker: #e6e8eb;
+    --fui-fill-color-blank: #fff;
+    
+    /* border */
+    --fui-border-width: 1px;
+    --fui-border-style: solid;
+    --fui-border-color-hover: var(--fui-text-color-disabled);
+    --fui-border: var(--fui-border-width) var(--fui-border-style) var(--fui-border-color);
+    --fui-border-radius-base: 4px;
+    --fui-border-radius-small: 2px;
+    --fui-border-radius-round: 20px;
+    --fui-border-radius-circle: 100%;
+    
+    /*font*/
+    --fui-font-size-extra-large: 20px;
+    --fui-font-size-large: 18px;
+    --fui-font-size-medium: 16px;
+    --fui-font-size-base: 14px;
+    --fui-font-size-small: 13px;
+    --fui-font-size-extra-small: 12px;
+    --fui-font-family: "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "\5fae\8f6f\96c5\9ed1", Arial, sans-serif;
+    --fui-font-weight-primary: 500;
+    
+    /*disabled*/
+    --fui-disabled-bg-color: var(--fui-fill-color-light);
+    --fui-disabled-text-color: var(--fui-text-color-placeholder);
+    --fui-disabled-border-color: var(--fui-border-color-light);
+    
+    /*animation*/
+    --fui-transition-duration: .3s;
+    --fui-transition-duration-fast: .2s;
+}

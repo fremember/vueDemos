@@ -114,9 +114,9 @@
     }
 
     const store = useStore(),
-        loading = computed(() => store.getters['manager/loading']),
         {
             tableData,
+            loading,
             currentPage,
             total,
             limit,

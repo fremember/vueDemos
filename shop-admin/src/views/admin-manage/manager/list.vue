@@ -120,11 +120,11 @@
 
     const store = useStore(),
         roles = ref([]),
-        loading = computed(() => store.getters['manager/loading']),
         {
             searchForm,
             resetSearchForm,
             tableData,
+            loading,
             currentPage,
             total,
             limit,

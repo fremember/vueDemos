@@ -1,12 +1,6 @@
 /**
- * @Author: xiangyang.peng
- * @Date: 2023-08-26 17:22:36
- * @LastEditTime: 2023-08-27 00:45:18
- * @LastEditors: fremember
- * @Description:  
- * @FilePath: /fremember_github/vueDemos/shop-admin/src/api/level.js
+ * 
  */
-
 import axios from '@/utils/axios'
 
 /**

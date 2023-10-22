@@ -77,10 +77,10 @@ import {
 } from '@/api/skus'
 
 const store = useStore(),
-    loading = computed(() => store.getters['manager/loading']),
     {
         getData,
         tableData,
+        loading,
         total,
         currentPage,
         limit,
