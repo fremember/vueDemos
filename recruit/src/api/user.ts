@@ -2,6 +2,7 @@ import request from '../utils/request'
 
 // 获取验证码
 export function getCode(data: any) {
+    console.log(data)
     return request({
         url: '/login/code',
         method: 'post',

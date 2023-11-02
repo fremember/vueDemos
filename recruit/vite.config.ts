@@ -15,11 +15,13 @@ export default defineConfig({
     }
   },
   server: {
-    port: 1314,
+    port: 8002,
+    host: '0.0.0.0',
     open: true,
-    cors: true,
-    proxy: {
-      '/api': 'https://api.imooc.zcwytd.com'
-    }
-  }
+    proxy:{
+      '/api/upload':'https://mobile.zcwytd.com',
+      '/api':'https://api.imooc.zcwytd.com'
+    },
+    cors: true
+  },
 })
