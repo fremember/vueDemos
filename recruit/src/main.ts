@@ -7,6 +7,7 @@ import './utils/rem'
 import 'virtual:windi.css'
 import 'vant/lib/index.css'
 import './assets/css/style.css'
+import './assets/css/common.css'
 
 import {
 	Button,

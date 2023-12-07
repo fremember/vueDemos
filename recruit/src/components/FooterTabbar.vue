@@ -51,8 +51,7 @@
 			}
 		]),
 		routes = computed(() => {
-			console.log(store.role)
-			return routesAll.filter((item) => item.role.includes(store.role))
+			return routesAll.filter((item) => item.role.includes(String(store.role)))
 		});
 	const gotoPage = (path: string) => {
 		router.push(path)

@@ -13,7 +13,7 @@
 </script>
 
 <template>
-	<div class="task-item" v-for="item in taskList" :key="item.task_id" @click="gotoPage(item.task_id)">
+	<div class="task-item" v-for="item in taskList" :key="item.task_id" @click="gotoDetail(item.task_id)">
 		<div class="task-item-top">
 			<h3>{{ item.task_name }}</h3>
 			<span v-if="item.is_emergency == 1">紧急</span>
