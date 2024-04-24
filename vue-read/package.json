@@ -1,0 +1,30 @@
+{
+  "name": "vue-read",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "amfe-flexible": "^2.2.1",
+    "vant": "^4.8.11",
+    "vue": "^3.4.21",
+    "vue-router": "4"
+  },
+  "devDependencies": {
+    "@types/postcss-pxtorem": "^6.0.3",
+    "@vitejs/plugin-vue": "^5.0.4",
+    "autoprefixer": "^10.4.19",
+    "postcss-pxtorem": "^6.1.0",
+    "sass": "^1.75.0",
+    "typescript": "^5.2.2",
+    "unplugin-vue-components": "^0.26.0",
+    "vite": "^5.2.0",
+    "vite-plugin-windicss": "^1.9.3",
+    "vue-tsc": "^2.0.6",
+    "windicss": "^3.5.6"
+  }
+}
