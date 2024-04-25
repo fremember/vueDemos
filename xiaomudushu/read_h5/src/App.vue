@@ -1,10 +1,9 @@
 <template>
-  <div class="text-pink-500">text windicss</div>
+    <router-view />
 </template>
 
 <script setup lang="ts">
 </script>
-
 
 <style scoped>
 </style>

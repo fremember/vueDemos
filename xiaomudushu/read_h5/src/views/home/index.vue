@@ -1,7 +1,7 @@
 <template name="home-view">
     <div class="home">
         <ul>
-            <li v-for="item in 1000" :key="item">{{ item }}</li>
+            <li v-for="item in 100" :key="item">{{ item }}</li>
         </ul>
     </div>
 </template>
