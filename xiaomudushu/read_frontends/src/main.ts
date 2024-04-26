@@ -1,9 +1,13 @@
 import { createApp } from 'vue'
+import { createPinia } from 'pinia'
+import  elementPlusIcon from './lib/elementPlusIcon'
+
 import router from './router'
 import App from './App.vue'
 import 'virtual:windi.css'
-import  elementPlusIcon from './lib/elementPlusIcon'
 
-const app = createApp(App)
 
-elementPlusIcon(app).use(router).mount('#app')
+const app = createApp(App),
+    pinia = createPinia();
+
+elementPlusIcon(app).use(router).use(pinia).mount('#app')

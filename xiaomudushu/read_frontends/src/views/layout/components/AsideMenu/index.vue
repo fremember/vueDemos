@@ -15,14 +15,16 @@
 </template>
 
 <script setup lang="ts">
-    import { ref, reactive, onMounted } from 'vue'
+    import { ref, reactive, onMounted, computed } from 'vue'
     import { useRouter, useRoute } from 'vue-router'
+    import { useCommonStore } from '@/store/common.store'
     import SubMenu from './SubMenu.vue'
     import MenuItem from './MenuItem.vue'
 
     const router = useRouter(),
         route = useRoute(),
-        isCollapse = ref(false),
+        commonStore = useCommonStore(),
+        isCollapse = computed(() => commonStore.isCollapse),
         defaultOpeneds = ref<Array<string>>([]),
         defaultActive = ref<string>(''),
         menuList = reactive<Array<any>>([
@@ -35,21 +37,20 @@
                     id: '22', title: '角色管理', icon: 'CreditCard', path: '/layout/role', children: []
                 },
                 {
-                    id: '22', title: '用户管理', icon: 'User', path: '/layout/user', children: []
+                    id: '23', title: '用户管理', icon: 'User', path: '/layout/user', children: []
                 }
             ] },
             { id: '3', title: '日志管理', icon: 'Document', path: '', children: [
                 {
-                    id: '31', title: '操作日志', icon: 'Memo', path: '/layout/operateLog', children: []
+                    id: '31', title: '操作日志', icon: 'Document', path: '/layout/operateLog', children: []
                 },
                 {
-                    id: '32', title: '登录日志', icon: 'Memo', path: '/layout/loginLog', children: []
+                    id: '32', title: '登录日志', icon: 'ScaleToOriginal', path: '/layout/loginLog', children: []
                 }
             ] }
         ]);
 
     const handleSelect = (key: string, keyPath: string[]) => {
-        console.log(key, keyPath)
         // 只做两层
         const pid = Number(keyPath[0]) - 1,
             id = key;

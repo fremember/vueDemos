@@ -1,13 +1,22 @@
-.aside-menu,
-.sub-menu .el-menu {
+.aside-menu {
     background-color: transparent !important;
+    border-right: none;
 }
-.menu-item {
+.sub-menu :deep(.el-menu) {
+    background: #1f2d3d
+}
+:deep(.menu-item),
+:deep(.el-sub-menu__title) {
     color: #BFCBD9;
 }
-.el-sub-menu__title {
-    color: #BFCBD9;
-}
-.is-active {
+:deep(.is-active) {
     color: #409EFF;
+}
+:deep(.el-sub-menu__title:hover),
+:deep(.el-menu-item:hover) {
+    background: #001528;
+}
+.narrow-edge :deep(.el-menu-tooltip__trigger) {
+    padding: 0;
+    text-align: center;
 }

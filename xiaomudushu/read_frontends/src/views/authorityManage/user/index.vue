@@ -1,6 +1,6 @@
 <template name="user-view">
     <section class="user">
-        menu
+        user
     </section>
 </template>
 
