@@ -1,3 +1,4 @@
+// import { defineConfig, normalizePath } from 'vite'
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import autoprefixer from 'autoprefixer'
@@ -5,10 +6,18 @@ import WindiCSS from 'vite-plugin-windicss'
 import Components from "unplugin-vue-components/vite"
 import { VantResolver } from "unplugin-vue-components/resolvers"
 import postCssPxToRem from 'postcss-pxtorem'
+// import path from 'path'
+
+// const variablePath = normalizePath(path.resolve('./src/assets/style/common.scss'))
 
 // https://vitejs.dev/config/
 export default defineConfig({
   css: {
+    // preprocessorOptions: {
+    //   scss: {
+    //     additionalData: `@import "${variablePath}";`
+    //   }
+    // },
     postcss: {
       plugins: [
         autoprefixer({

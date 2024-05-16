@@ -1,3 +1,8 @@
 .home {
-    color: #f00;
+    padding-top: 10px;
+    height: 100%;
+    &-body {
+        height: 100%;
+        overflow-y: auto;
+    }
 }
