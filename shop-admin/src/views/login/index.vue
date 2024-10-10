@@ -1,0 +1,115 @@
+<template name="login-view">
+    <el-row class="login-container">
+        <el-col :lg="16" :md="12" class="login-container-left">
+            <section>
+                <div>欢迎光临</div>
+                <div>此站点是《vue3 + vite实战商城后台开发》项目</div>
+            </section>
+        </el-col>
+        <el-col :lg="8" :md="12" class="login-container-right">
+            <h2 class="title">欢迎回来</h2>
+            <div>
+                <span class="line"></span>
+                <span>账号密码登录</span>
+                <span class="line"></span>
+            </div>
+            <el-form ref="formRef" :model="form" class="w-[250px]" :rules="ruleForm">
+                <el-form-item prop="username">
+                    <el-input placeholder="请输入用户名" v-model="form.username">
+                        <template #prefix>
+                            <el-icon class="el-input__icon"><user /></el-icon>
+                        </template>
+                    </el-input>
+                </el-form-item>
+                <el-form-item prop="password">
+                    <el-input placeholder="请输入密码" type="password" v-model="form.password" show-password>
+                        <template #prefix>
+                            <el-icon class="el-input__icon"><lock /></el-icon>
+                        </template>
+                    </el-input>
+                    <!-- 下面这种方式不能使用全局引入，需要在当前.vue文件中引入 -->
+                    <!-- <el-input placeholder="请输入密码" type="password" v-model="form.password" :prefix-icon="Lock" /> -->
+                </el-form-item>
+                <el-form-item>
+                    <el-button class="w-[250px]" color="#626aef" round type="primary" :loading="loading" @click="onSubmit">登 录</el-button>
+                </el-form-item>
+            </el-form>
+        </el-col>
+    </el-row>
+</template>
+
+<script setup>
+    import { ref, reactive, computed, onMounted, onBeforeUnmount } from 'vue'
+    import { useRouter } from 'vue-router'
+    import { useStore } from 'vuex'
+
+    import { notification } from '@/utils/element-plus'
+
+    // import { User, Lock } from '@element-plus/icons-vue'
+    const router = useRouter(),
+        store = useStore(),
+        formRef = ref(null),
+        form = reactive({
+            username: '',
+            password: ''
+        }),
+        ruleForm = reactive({
+            username: [
+                { required: true, message: '用户名不能为空', trigger: 'blur' }
+            ],
+            password: [
+                { required: true, message: '密码不能为空', trigger: 'blur' }
+            ]
+        }),
+        loading = computed(() => store.getters['manager/loading']),
+        onSubmit = () => {
+            formRef.value.validate((valid) => {
+                if(!valid) {
+                    return false
+                }
+                store.dispatch('manager/login', form).then(res => {
+                    notification({ message: '登录成功', type: 'success' })
+                    router.push('/')
+                })
+            })
+        };
+    function onKeyUp (e) {
+        if(e.key == 'Enter') {
+            onSubmit()
+        }
+    }
+    onMounted(() => {
+        document.addEventListener('keyup', onKeyUp)
+    })
+    onBeforeUnmount(() => {
+        document.removeEventListener('keyup', onKeyUp)
+    })
+    
+</script>
+
+<style scoped>
+    .login-container {
+        @apply min-h-screen bg-indigo-500;
+    }
+    .login-container-left, .login-container-right, .login-container-right > div {
+        @apply flex items-center justify-center;
+    }
+    .login-container-right {
+        @apply flex-col bg-light-50;
+    }
+    .login-container-left > section > div:first-child {
+        @apply font-bold text-5xl text-light-50 mb-4;
+    }
+    .login-container-left > section > div:last-child {
+        @apply text-gray-200 text-sm;
+    }
+    .login-container-right .title {
+        @apply font-bold text-3xl text-gray-800;
+    }
+    .login-container-right > div {
+        @apply my-5 text-gray-300 space-x-2;
+    }
+    .login-container-right > div .line {
+        @apply w-16 h-[1px] bg-gray-200;
+    }
+</style>
