@@ -1,115 +1,238 @@
-<template name="login-view">
-    <el-row class="login-container">
-        <el-col :lg="16" :md="12" class="login-container-left">
-            <section>
-                <div>欢迎光临</div>
-                <div>此站点是《vue3 + vite实战商城后台开发》项目</div>
-            </section>
-        </el-col>
-        <el-col :lg="8" :md="12" class="login-container-right">
-            <h2 class="title">欢迎回来</h2>
-            <div>
-                <span class="line"></span>
-                <span>账号密码登录</span>
-                <span class="line"></span>
+<template name="not-found-view">
+    <section class="bg-light-50 p-30px not-found-view">
+        <ul class="flex items-center justify-center">
+            <li class="lex-1">
+                <h2 class="text-center name">彭向阳</h2>
+                <p class="flex items-center justify-center common-info">
+                    <span>求职意向：前端开发工程师</span>
+                    <span>合肥</span>
+                    <span>16000/月</span>
+                    <span>随时到岗</span>
+                </p>
+                <p class="flex items-center justify-center common-info">
+                    <span>32岁</span>
+                    <span>男</span>
+                    <span>未婚</span>
+                    <span>8年经验</span>
+                </p>
+                <p class="flex items-center justify-center common-info">
+                    <span>18769567910</span>
+                    <span>18769567910@163.com</span>
+                </p>
+            </li>
+            <!-- <li class="avatar">
+                <img class="w-full h-full" src="@/assets/images/avatar.jpeg" alt="" />
+            </li> -->
+        </ul>
+        <div class="mt-16px">
+            <div class="cm-title">教育背景</div>
+            <ul class="flex items-center justify-between cm-sub-title">
+                <li class="w-160px pr-20px">2011-09 ~ 2015-06</li>
+                <li class="min-w-260px text-center pr-20px cm-name">聊城大学（山东）</li>
+                <li class="flex-1 text-right cm-other">数字媒体艺术（本科）</li>
+            </ul>
+            <div class="cm-more">
+                <p>主修课程：c语言、java、网页设计，艺术设计，影视后期制作（PS、AE、PR、3dmax），素描等</p>
             </div>
-            <el-form ref="formRef" :model="form" class="w-[250px]" :rules="ruleForm">
-                <el-form-item prop="username">
-                    <el-input placeholder="请输入用户名" v-model="form.username">
-                        <template #prefix>
-                            <el-icon class="el-input__icon"><user /></el-icon>
-                        </template>
-                    </el-input>
-                </el-form-item>
-                <el-form-item prop="password">
-                    <el-input placeholder="请输入密码" type="password" v-model="form.password" show-password>
-                        <template #prefix>
-                            <el-icon class="el-input__icon"><lock /></el-icon>
-                        </template>
-                    </el-input>
-                    <!-- 下面这种方式不能使用全局引入，需要在当前.vue文件中引入 -->
-                    <!-- <el-input placeholder="请输入密码" type="password" v-model="form.password" :prefix-icon="Lock" /> -->
-                </el-form-item>
-                <el-form-item>
-                    <el-button class="w-[250px]" color="#626aef" round type="primary" :loading="loading" @click="onSubmit">登 录</el-button>
-                </el-form-item>
-            </el-form>
-        </el-col>
-    </el-row>
+        </div>
+        <div class="mt-16px">
+            <div class="cm-title">技能特长</div>
+            <div class="cm-more">
+                <!-- <p>熟练 vue3.x 版本全家桶，在工作中多次使用；</p>
+                <p>擅长 jQuery 开发，曾实现过jQuery源码；</p>
+                <p>熟练使用 es6 及以上版本语法，熟练使用 TS 项目开发；</p>
+                <p>熟练使用 webpack、gulp 等前端构建工具和 git 版本管理工具；</p>
+                <p>熟练使用 CSS 预处理技术，包括 Sass 、Scss、Stylus 、Less；</p>
+                <p>熟悉 Node 后台语言、熟悉 MySQL、MongoDB 数据库</p> -->
+				<p>熟练使用各种 web 前端技术,包括 HTML(5)/CSS(3)/JS/TS 等,能快速还原 PSD 源文件,解决各类浏览器兼容性；</p>
+				<p>熟练使用 vue 框架快速的构建项目,以及第三方库(mintUI、ElementUI、bootstrap、jQuery、MUI)；</p>
+				<p>熟练微信小程序开发，支付宝小程序开发；</p>
+				<p>熟悉webpack自动化构建工具，熟练使用 sass、less、stylus预处理器；</p>
+				<p>熟练使用Git、SVN进行项目管理；</p>
+				<p>掌握基本的后端开发知识：Nodejs、数据库等</p>
+            </div>
+        </div>
+        <div class="mt-16px">
+            <div class="cm-title">工作经验</div>
+            <ul class="flex items-center justify-between cm-sub-title">
+                <li class="w-160px pr-20px">2023-09 ~ 至今</li>
+                <li class="min-w-260px text-center pr-20px cm-name">安徽兆尹信息科技股份有限公司</li>
+                <li class="flex-1 text-right cm-other">前端开发工程师</li>
+            </ul>
+            <div class="cm-more">
+                <ul>
+                    <li>工作内容：负责前端项目开发和公共组件开发与维护</li>
+                    <li>使用技术栈：开发使用vue2技术栈 + uni-app</li>
+                    <li>参与的项目有：</li>
+                    <ol>
+                        <li>天津财顾项目PC端（vue2）和小程序端（uni-app开发）开发与维护；</li>
+                        <li>上海农商行项目PC端（vue2）和小程序端（uni-app开发）开发与维护；</li>
+                        <li>黑龙江城市银行项目PC端（vue2）和小程序端（uni-app开发）开发与维护；</li>
+						<li>宁波银行管理系统重构开发（vue3）；</li>
+						<li>其他项目的支援工作。</li>
+                    </ol>
+                </ul>
+            </div>
+
+            <ul class="flex items-center justify-between cm-sub-title">
+                <li class="w-160px pr-20px">2022-01 ~ 2023-07</li>
+                <li class="min-w-260px text-center pr-20px cm-name">安徽一视科技有限公司</li>
+                <li class="flex-1 text-right cm-other">前端开发工程师</li>
+            </ul>
+            <div class="cm-more">
+                <ul>
+                    <li>工作内容：负责PC和APP前端实现、公共组件实现、公共方法实现</li>
+                    <li>使用技术栈：开发使用vue3.0+ts技术栈，打包使用uniapp实现，数据可是化使用ECharts</li>
+                    <li>参与的项目有：</li>
+                    <ol>
+                        <li>教师端：主要是适配pad的安卓端应用，其中包括教学和学生信息两大模块，教学模块下有：快速测试、随堂测试、国家体测、自由练习；二级模块有：任务中心、教学评测、成绩查询、项目统计分析等，实时检测体育测试项目，学生信息主要是收集和展示学生信息的列表，项目难点是人脸识别（为使用第三方插件）</li>
+                        <li>管理端：pc端项目，主要模块有：项目配置、标定管理、学生信息、系统配置、日志配置等模块，主要难点：标定管理是摄像头和喇叭的IP地址配置，以及标定位置的绘制</li>
+                        <li>数据大屏：室外大屏展示，主要模块有：首页数据展示，学生人脸识别，学生统计分析，增加友盟统计（主要是事件统计）</li>
+                        <li>室外大屏：800和1000米小屏、立定跳远小屏，主要做该项目的测试、统计、学生排行榜的等功能，难点：一套代码基于测试位适配不同的项目，解决：硬件设备安装完成后，由技术支持直接绑定设备（id）和测试位，由服务端坐数据存储，每次初始化首页的时候需要做设备的检测，在测试过程中需要做测试位的绑定</li>
+                        <li>区级管理平台：主要是数据可是化，对外展示使用</li>
+                    </ol>
+                </ul>
+            </div>
+
+            <ul class="flex items-center justify-between cm-sub-title">
+                <li class="w-160px pr-20px">2020-12 ~ 2022-01</li>
+                <li class="min-w-260px text-center pr-20px cm-name">合肥方了个田教育科技有限公司</li>
+                <li class="flex-1 text-right cm-other">前端开发工程师</li>
+            </ul>
+            <div class="cm-more">
+                <ul>
+                    <li>工作内容：负责PC端和小程序端的实现</li>
+                    <li>使用技术栈：PC：开发使用vue3.0+ts技术栈，小程序：微信小程序</li>
+                    <li>参与的项目有：</li>
+                    <ol>
+                        <li>方田教育小程序：主要模块：课程列表、订单中心、个人中心；主要作用：给学生购买课程、选课、转班、调班、做作业使用</li>
+                        <li>方田教育PC端：主要模块：课程列表、选课中心、交流中心、关于我们、客户端下载等，主要作用：给PC学生购买课程、选课、转班、调班、做作业使用</li>
+                        <li>PC端方田直播课堂：主要是基于声网的RTM、RTC、黑板的API做的二次开发，主要功能有：黑板、答题互动、学生列表、学生上下台发言操作等模块</li>
+                        <li>校长报表：该项目主要实现数据统计，方便校区校长做老师续保率和报名学生学习情况分析使用(vue3.0 + ECharts + ant-design-vue)</li>
+                    </ol>
+                </ul>
+            </div>
+
+            <ul class="flex items-center justify-between cm-sub-title">
+                <li class="w-160px pr-20px">2018-05 ~ 2020-12</li>
+                <li class="min-w-260px text-center pr-20px cm-name">合肥达链科技有限公司</li>
+                <li class="flex-1 text-right cm-other">前端开发工程师</li>
+            </ul>
+            <div class="cm-more">
+                <ul>
+                    <li>工作内容：负责PC端和APP前端实现</li>
+                    <li>使用技术栈：vue2.0技术栈，jQuery</li>
+                    <li>参与的项目有：</li>
+                    <ol>
+                        <li>官网和管理系统的开发和维护(vue)；</li>
+                        <li>BCB钱包手机端H5页面开发与维护（jQuery）;</li>
+                        <li>游戏管理后台前端页面的开发与维护(vue+elementUI)；</li>
+                        <li>移动端棋牌类游戏、骰子类游戏开发与维护(vue)；</li>
+                        <li>交易所移动端、PC端项目开发与维护(vue);</li>
+                    </ol>
+                </ul>
+            </div>
+
+            <ul class="flex items-center justify-between cm-sub-title">
+                <li class="w-160px pr-20px">2015-07 ~ 2018-05</li>
+                <li class="min-w-260px text-center pr-20px cm-name">北京学众信息技术有限公司</li>
+                <li class="flex-1 text-right cm-other">前端开发工程师</li>
+            </ul>
+            <div class="cm-more">
+                <ul>
+                    <li>工作内容：负责APP混合开发，做前端技术选型（vue），解决安卓和ios的兼容适配问题，解决与原生的交互问题；</li>
+                    <li>使用技术栈：vue2.0技术栈，jQuery</li>
+                    <li>参与的项目有：学众教育APP和官网；</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="mt-16px">
+            <div class="cm-title">开源、博客</div>
+            <div class="cm-more">
+                <p>1、基于 element-ui 组建的二次封装：https://github.com/fremember/vueDemos/tree/master/v-elemplus</p>
+                <p>2、商城管理端项目： https://github.com/fremember/vueDemos/tree/master/shop-admin</p>
+                <p>3、vue3+ts项目搭建教程： https://github.com/fremember/vueDemos/tree/master/vue-test</p>
+                <p>4、csdn博客文章：https://mp.csdn.net/mp_blog/manage/article</p>
+            </div>
+        </div>
+
+        <div class="mt-16px">
+            <div class="cm-title">未来规划</div>
+            <div class="cm-more">
+                <p>1、继续深根前端技术，阅读框架源码</p>
+                <p>2、工作之余，写一些插件以备工作需要</p>
+                <p>3、工作之余，完善博客内容，继续分享更多的前端知识，记录自己的学习过程</p>
+            </div>
+        </div>
+    </section>
 </template>
 
 <script setup>
-    import { ref, reactive, computed, onMounted, onBeforeUnmount } from 'vue'
-    import { useRouter } from 'vue-router'
-    import { useStore } from 'vuex'
-
-    import { notification } from '@/utils/element-plus'
-
-    // import { User, Lock } from '@element-plus/icons-vue'
-    const router = useRouter(),
-        store = useStore(),
-        formRef = ref(null),
-        form = reactive({
-            username: '',
-            password: ''
-        }),
-        ruleForm = reactive({
-            username: [
-                { required: true, message: '用户名不能为空', trigger: 'blur' }
-            ],
-            password: [
-                { required: true, message: '密码不能为空', trigger: 'blur' }
-            ]
-        }),
-        loading = computed(() => store.getters['manager/loading']),
-        onSubmit = () => {
-            formRef.value.validate((valid) => {
-                if(!valid) {
-                    return false
-                }
-                store.dispatch('manager/login', form).then(res => {
-                    notification({ message: '登录成功', type: 'success' })
-                    router.push('/')
-                })
-            })
-        };
-    function onKeyUp (e) {
-        if(e.key == 'Enter') {
-            onSubmit()
-        }
-    }
-    onMounted(() => {
-        document.addEventListener('keyup', onKeyUp)
+    document.addEventListener('click', function () {
+        window.print()
     })
-    onBeforeUnmount(() => {
-        document.removeEventListener('keyup', onKeyUp)
-    })
-    
 </script>
 
 <style scoped>
-    .login-container {
-        @apply min-h-screen bg-indigo-500;
+    .not-found-view {
+        @apply mx-auto w-820px;
     }
-    .login-container-left, .login-container-right, .login-container-right > div {
-        @apply flex items-center justify-center;
+    .not-found-view .avatar {
+        @apply w-106px h-106px;
     }
-    .login-container-right {
-        @apply flex-col bg-light-50;
+    .name {
+        @apply h-36px mb-9px;
+        font-size: 22px;
+        color: #222;
+        letter-spacing: 2px;
     }
-    .login-container-left > section > div:first-child {
-        @apply font-bold text-5xl text-light-50 mb-4;
+    .common-info {
+        @apply mt-9px;
     }
-    .login-container-left > section > div:last-child {
-        @apply text-gray-200 text-sm;
+    .common-info span {
+        @apply h-14px px-10px;
+        line-height: 14px;
+        font-size: 13px;
+        color: #333;
     }
-    .login-container-right .title {
-        @apply font-bold text-3xl text-gray-800;
+    .common-info span:not(:last-child) {
+        border-right: 1px solid #ccc;
     }
-    .login-container-right > div {
-        @apply my-5 text-gray-300 space-x-2;
+    .cm-title {
+        @apply h-36px;
+        line-height: 36px;
+        font-size: 16px;
+        color: #284967;
+        border-bottom: 1px solid #284967;
     }
-    .login-container-right > div .line {
-        @apply w-16 h-[1px] bg-gray-200;
+    .cm-sub-title {
+        @apply pt-16px;
+    }
+    .cm-sub-title li {
+        @apply font-bold;
+        font-size: 13px;
+        color: #333;
+    }
+    .cm-more {
+        @apply mt-7px;
+        color: #555;
+    }
+    .cm-more p, li {
+        line-height: 22px;
+        font-size: 13px;
+    }
+    .cm-more ul > li {
+        @apply pl-20px relative;
+    }
+    .cm-more ul > li:before {
+        @apply absolute top-7px  left-7px text-center w-6px h-6px rounded;
+        content: '';
+        background: #666;
+    }
+    .cm-more ol > li {
+        @apply pl-40px;
+        list-style-type: decimal;
+        list-style-position: inside;
     }
 </style>
