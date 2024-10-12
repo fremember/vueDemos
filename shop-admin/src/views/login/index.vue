@@ -10,10 +10,10 @@
                     <span>随时到岗</span>
                 </p>
                 <p class="flex items-center justify-center common-info">
-                    <span>32岁</span>
+                    <span>33岁</span>
                     <span>男</span>
                     <span>未婚</span>
-                    <span>8年经验</span>
+                    <span>9年经验</span>
                 </p>
                 <p class="flex items-center justify-center common-info">
                     <span>18769567910</span>
@@ -151,8 +151,9 @@
             <div class="cm-title">开源、博客</div>
             <div class="cm-more">
                 <p>1、基于 element-ui 组建的二次封装：https://github.com/fremember/vueDemos/tree/master/v-elemplus</p>
-                <p>2、商城管理端项目： https://github.com/fremember/vueDemos/tree/master/shop-admin</p>
-                <p>3、vue3+ts项目搭建教程： https://github.com/fremember/vueDemos/tree/master/vue-test</p>
+				<p>2、学习搭建UI组件库：https://github.com/fremember/FrememberUI</p>
+                <p>2、商城管理端项目：https://github.com/fremember/vueDemos/tree/main/shop-admin</p>
+                <p>3、vue3+ts项目搭建教程：https://github.com/fremember/vueDemos/tree/main/vue-test</p>
                 <p>4、csdn博客文章：https://mp.csdn.net/mp_blog/manage/article</p>
             </div>
         </div>

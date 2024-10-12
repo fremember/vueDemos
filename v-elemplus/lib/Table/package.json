@@ -1,0 +1,8 @@
+
+        {
+            "name": "Table",
+            "main": "index.umd.js",
+            "module": "index.css.js",
+            "style": "styles.css"
+        }
+    
